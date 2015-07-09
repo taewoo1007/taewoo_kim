@@ -1,0 +1,57 @@
+#2015.07.09 In-class 
+#Taewoo_Kim
+
+#Q2
+#(a)
+
+first_visit <- c(20,32,35,34,40,51,52,56,57,68)
+second_visit <- c(23,34,36,44,42,51,54,57,54,62)
+plot(first_visit, second_visit)
+
+#(b)
+
+# There is positive relationship between the amount of money 
+# spended on the first visit and the second visit. 
+# It looks linear and strong relationship.
+
+#(c)
+
+cor(first_visit, second_visit)
+
+#(d)
+
+#(e)
+
+install.packages("psychometric")
+library(psychometric)
+CIr(cor(first_visit, second_visit), length(first_visit), level = .95)
+
+rt <- cor.test(first_visit, second_visit)
+
+#Q3
+#(a)
+second_visit2 <- second_visit + 30
+second_visit2
+
+cor(first_visit, second_visit2)
+
+# Even if we add constant to one or two variables, 
+# the correlation between two variables is same with the first one.
+
+#(b)
+first_visit2 <- first_visit * 100
+first_visit2
+
+cor(first_visit2, second_visit)
+
+# Even if we multiply a constant to one or two variables,
+# there isn't any effect on the correlation coefficient.
+
+#Q4
+#(a)
+home_range <- c(-1.3, -0.5, -0.3, 0.2, 0.1, 0.5, 1.0, 0.3, 0.4, -0.5, 
+0.1, 0.2, 0.4, 1.3, 1.2, 1.4, 1.6, 1.6, 1.8, 3.1)
+percentage <- c(4, 22, 0, 0, 11, 13, 17, 25, 24, 27, 29, 33, 33, 42, 33, 20,
+19, 19, 25, 65)
+
+plot(home_range, percentage)
