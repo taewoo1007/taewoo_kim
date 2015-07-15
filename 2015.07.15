@@ -61,10 +61,14 @@ points(newsls$education, newsls$pred, col="green")
 points(newsls$education, newsls$pred, col="green", pch=3)
 
 #Mine
+Orange
 plot(Orange$age, Orange$circumference,xlab="Age",ylab="Circumference")
 ye.model1 <- lm(circumference~age, data=Orange)
 abline(ye.model1,col="red")
 Orange$pred <- predict(ye.model1, Orange)
 points(Orange$age, Orange$pred, col="blue", pch=16)
 
-newOrange <- data.frame(age
+newOrange <- data.frame(age = seq(0, 1600, 100))
+newOrange$pred <- predict(ye.model1, newOrange)
+points(newOrange$age, newOrange$pred, col="green")
+points(newOrange$age, newOrange$pred, col="green", pch=3)
