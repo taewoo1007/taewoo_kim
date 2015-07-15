@@ -1,0 +1,70 @@
+#2015.07.15
+#In-class R-Code
+#Taewoo Kim(2009312826)
+
+#K-means
+
+mtcars
+
+head(mtcars)
+bad <- kmeans(mtcars, centers=2)
+plot(mtcars$mpg, mtcars$hp, col=bad$cluster, pch=16, cex=2, xlab="MPG",ylab="Horsepower")
+install.packages("e1071")
+library(e1071)
+
+#Hier
+
+cars_norm <- scale(mtcars)
+d <- dist(cars_norm, method="euclidean")
+hc <- hclust(d, method="complete")
+plot(hc)
+cutree(hc,3)
+
+#iris
+
+head(iris)
+data(iris)
+summary(iris)
+x <- iris[,-5]
+y <- iris$Species
+classifier <- naiveBayes(iris[,1:4], iris[,5])
+table(predict(classifier,iris[,-5],iris[,5]))
+
+model = train(x,y,'nb',trControl=trainControl(method='cv',number=10))
+predict(mode
+
+#spam
+
+head(spam)
+sub=sample(nrow(spam), floor(nrow(spam)*0.9))
+train = spam[sub,]
+test = spam[-sub,]
+
+xTrain = train[,-58]
+yTrain = train $ spam
+
+xTest = test[,-58]
+yTest = test $ spam
+
+model = train(xTrain, yTrain, 'nb', trControl=trainControl(method='cv',number=10))
+prop.table(table(predict(model$finalModel,xTest)$class,yTest))
+
+#example1
+ye.model <- lm(income~education, data=sls)
+sls$pred <- predict(ye.model, sls)
+points(sls$education, sls$prd, col="blue", pch=16)
+
+#example2
+newsls <- data.frame(education = seq(1,25, 0.5))
+newsls$pred <- predict(ye.model, newsls)
+points(newsls$education, newsls$pred, col="green")
+points(newsls$education, newsls$pred, col="green", pch=3)
+
+#Mine
+plot(Orange$age, Orange$circumference,xlab="Age",ylab="Circumference")
+ye.model1 <- lm(circumference~age, data=Orange)
+abline(ye.model1,col="red")
+Orange$pred <- predict(ye.model1, Orange)
+points(Orange$age, Orange$pred, col="blue", pch=16)
+
+newOrange <- data.frame(age
